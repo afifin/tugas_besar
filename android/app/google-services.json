@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "497802971829",
+    "project_id": "my-polines",
+    "storage_bucket": "my-polines.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:497802971829:android:acec4a764d7be4bf240cfc",
+        "android_client_info": {
+          "package_name": "com.example.tugas_besar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "497802971829-8oc3m7cvoo3hhpva3iepg988j6tli50o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDPhy-XPFTsIzP54YID1l254GPmZOu-z6A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "497802971829-8oc3m7cvoo3hhpva3iepg988j6tli50o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
