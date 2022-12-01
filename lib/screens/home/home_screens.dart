@@ -1,162 +1,307 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
+import 'package:tugas_besar/config/colors.dart';
+
+import 'package:tugas_besar/screens/home/singal_product.dart';
+import 'package:tugas_besar/screens/product_overview/product_overview.dart';
+import 'package:tugas_besar/screens/search/search.dart';
+
+import 'drawer_side.dart';
 
 class HomeScreen extends StatelessWidget {
-  Widget singalProducts() {
-    return Container(
-      margin: EdgeInsets.symmetric(horizontal: 5),
-      height: 270,
-      width: 160,
-      decoration: BoxDecoration(
-        color: Color(0xffd9dad9),
-        borderRadius: BorderRadius.circular(10),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Expanded(
-            flex: 2,
-            child: Image.network(
-                'https://www.pngmart.com/files/5/Donuts-PNG-HD.png'),
+  Widget _buildHerbsProduct(context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 20),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: const [
+              Text('Herbs Seasonings'),
+              Text(
+                'view all',
+                style: TextStyle(color: Colors.grey),
+              ),
+            ],
           ),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 3),
-                    child: Text(
-                      'Donat Khas Jepang',
-                      style: TextStyle(
-                          color: Colors.black, fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 5),
-                    child: Text(
-                      'Rp 2.500',
-                      style: TextStyle(
-                        color: Colors.grey,
+        ),
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            children: [
+              SingalProduct(
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => ProductOverview(
+                        productName: "Herbs",
+                        productImage:
+                            'https://sarasa.id/image/produk/gallery-snack/arem-ayam.png',
                       ),
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 5),
-                    child: Row(
-                      children: [
-                        Expanded(
-                          child: Container(
-                            padding: EdgeInsets.only(left: 5),
-                            height: 30,
-                            width: 50,
-                            decoration: BoxDecoration(
-                              border: Border.all(color: Colors.grey),
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                            child: Row(
-                              children: [
-                                Expanded(
-                                    child: Text(
-                                  "Topping",
-                                  style: TextStyle(fontSize: 10),
-                                )),
-                                Center(
-                                  child: Icon(
-                                    Icons.arrow_drop_down,
-                                    size: 20,
-                                    color: Colors.yellow,
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          width: 5,
-                        ),
-                        Expanded(
-                          child: Container(
-                            height: 30,
-                            width: 50,
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                color: Colors.grey,
-                              ),
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Icon(
-                                  Icons.remove,
-                                  size: 15,
-                                  color: Color(0xffd0b84c),
-                                ),
-                                Text(
-                                  '1',
-                                  style: TextStyle(
-                                      color: Color(0xffd0b84c),
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                Icon(
-                                  Icons.add,
-                                  size: 15,
-                                  color: Color(0xffd0b84c),
-                                )
-                              ],
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  )
-                ],
+                  );
+                },
+                productImage:
+                    'https://sarasa.id/image/produk/gallery-snack/arem-ayam.png',
+                productName: 'Herbs',
               ),
-            ),
+              SingalProduct(
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => ProductOverview(
+                        productName: "Herbs1",
+                        productImage:
+                            'https://sarasa.id/image/produk/gallery-snack/arem-ayam.png',
+                      ),
+                    ),
+                  );
+                },
+                productImage:
+                    ('https://sarasa.id/image/produk/gallery-snack/arem-ayam.png'),
+                productName: 'Herbs1',
+              ),
+              SingalProduct(
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => ProductOverview(
+                        productName: "Herbs2",
+                        productImage:
+                            'https://sarasa.id/image/produk/gallery-snack/arem-ayam.png',
+                      ),
+                    ),
+                  );
+                },
+                productImage:
+                    ('https://sarasa.id/image/produk/gallery-snack/arem-ayam.png'),
+                productName: 'Herbs2',
+              ),
+              SingalProduct(
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => ProductOverview(
+                        productName: "Herbs3",
+                        productImage:
+                            'https://sarasa.id/image/produk/gallery-snack/arem-ayam.png',
+                      ),
+                    ),
+                  );
+                },
+                productImage:
+                    ('https://sarasa.id/image/produk/gallery-snack/arem-ayam.png'),
+                productName: 'Herbs3',
+              ),
+            ],
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
+
+  Widget _buildFreshProduct(context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 20),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: const [
+              Text('Herbs Seasonings'),
+              Text(
+                'view all',
+                style: TextStyle(color: Colors.grey),
+              ),
+            ],
+          ),
+        ),
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            children: [
+              SingalProduct(
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => ProductOverview(
+                        productName: "Herbs",
+                        productImage:
+                            'https://sarasa.id/image/produk/gallery-snack/arem-ayam.png',
+                      ),
+                    ),
+                  );
+                },
+                productImage:
+                    ('https://sarasa.id/image/produk/gallery-snack/arem-ayam.png'),
+                productName: 'Herbs',
+              ),
+              SingalProduct(
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => ProductOverview(
+                        productName: "Herbs1",
+                        productImage:
+                            'https://sarasa.id/image/produk/gallery-snack/arem-ayam.png',
+                      ),
+                    ),
+                  );
+                },
+                productImage:
+                    ('https://sarasa.id/image/produk/gallery-snack/arem-ayam.png'),
+                productName: 'Herbs1',
+              ),
+              SingalProduct(
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => ProductOverview(
+                        productName: "Herbs2",
+                        productImage:
+                            'https://sarasa.id/image/produk/gallery-snack/arem-ayam.png',
+                      ),
+                    ),
+                  );
+                },
+                productImage:
+                    ('https://sarasa.id/image/produk/gallery-snack/arem-ayam.png'),
+                productName: 'Herbs2',
+              ),
+              SingalProduct(
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => ProductOverview(
+                        productName: "Herbs3",
+                        productImage:
+                            'https://sarasa.id/image/produk/gallery-snack/arem-ayam.png',
+                      ),
+                    ),
+                  );
+                },
+                productImage:
+                    ('https://sarasa.id/image/produk/gallery-snack/arem-ayam.png'),
+                productName: 'Herbs3',
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildRootProduct(context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 20),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: const [
+              Text('Herbs Seasonings'),
+              Text(
+                'view all',
+                style: TextStyle(color: Colors.grey),
+              ),
+            ],
+          ),
+        ),
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            children: [
+              // SingalProduct(
+
+              //
+
+              //   productImage:
+
+              //       ('https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg'),
+
+              //   productName: 'Herbs', onTap: () {
+
+              //   Navigator.of(context).push(MaterialPageRoute(
+
+              //       builder: (context) =>  ProductOverview()));
+
+              // },
+
+              // ),
+
+              //
+
+              SingalProduct(
+                  productImage:
+                      ('https://sarasa.id/image/produk/gallery-snack/arem-ayam.png'),
+                  productName: 'Herbs',
+                  onTap: () {}),
+
+              SingalProduct(
+                  productImage:
+                      ('https://sarasa.id/image/produk/gallery-snack/arem-ayam.png'),
+                  productName: 'Herbs',
+                  onTap: () {}),
+
+              SingalProduct(
+                  productImage:
+                      ('https://sarasa.id/image/produk/gallery-snack/arem-ayam.png'),
+                  productName: 'Herbs',
+                  onTap: () {}),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+
+  const HomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffcbcbcb),
-      drawer: Drawer(),
+      drawer: Drawerside(),
       appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.black),
+        backgroundColor: primaryColor,
+        iconTheme: IconThemeData(color: textColor),
         title: Text(
           'Home',
-          style: TextStyle(color: Colors.black, fontSize: 17),
+          style: TextStyle(color: textColor, fontSize: 17),
         ),
         actions: [
           CircleAvatar(
-            radius: 12,
-            backgroundColor: Color(0xfffd4d181),
-            child: Icon(
-              Icons.search,
-              size: 20,
-              color: Colors.black,
-            ),
+            backgroundColor: primaryColor,
+            radius: 15,
+            child: IconButton(
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => Search(),
+                    ),
+                  );
+                },
+                icon: Icon(
+                  Icons.search,
+                  size: 25,
+                  color: textColor,
+                )),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 5),
+            padding: const EdgeInsets.symmetric(horizontal: 15),
             child: CircleAvatar(
+              backgroundColor: primaryColor,
               radius: 12,
-              backgroundColor: Color(0xfffd4d181),
               child: Icon(
                 Icons.shop,
-                size: 20,
-                color: Colors.black,
+                size: 25,
+                color: textColor,
               ),
             ),
-          )
+          ),
         ],
-        backgroundColor: Color(0xffd6b738),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
@@ -165,67 +310,72 @@ class HomeScreen extends StatelessWidget {
             Container(
               height: 150,
               decoration: BoxDecoration(
-                  image: DecorationImage(
-                      fit: BoxFit.cover,
-                      image: NetworkImage(
-                          'https://i1.wp.com/pediaa.com/wp-content/uploads/2018/05/Difference-Between-Fruit-and-Vegetable_Figure-1.jpg?resize=557%2C405')),
-                  color: Colors.red,
-                  borderRadius: BorderRadius.circular(10)),
+                image: const DecorationImage(
+                  fit: BoxFit.cover,
+                  opacity: 80,
+                  image: NetworkImage(
+                      'https://cdn0-production-images-kly.akamaized.net/pJP9an-tb2Mb8xvP39P-VGy9JPk=/469x260/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/3168274/original/097466500_1593673392-fried-spring-rolls-cutting-board_1150-17010.jpg'),
+                ),
+                color: Colors.black,
+                borderRadius: BorderRadius.circular(10),
+              ),
               child: Row(
                 children: [
                   Expanded(
                     flex: 2,
-                    child: Container(
-                      child: Column(
-                        children: [
-                          Padding(
-                            padding:
-                                const EdgeInsets.only(right: 130, bottom: 10),
-                            child: Container(
-                              height: 50,
-                              width: 100,
-                              decoration: BoxDecoration(
-                                color: Color(0xffd1ad17),
-                                borderRadius: BorderRadius.only(
-                                  bottomRight: Radius.circular(50),
-                                  bottomLeft: Radius.circular(50),
-                                ),
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding:
+                              const EdgeInsets.only(right: 130, bottom: 10),
+                          child: Container(
+                            height: 50,
+                            width: 100,
+                            decoration: const BoxDecoration(
+                              color: Color(0xffd1ad17),
+                              borderRadius: BorderRadius.only(
+                                bottomRight: Radius.circular(50),
+                                bottomLeft: Radius.circular(50),
                               ),
-                              child: Center(
-                                child: Text(
-                                  'Danus',
-                                  style: TextStyle(
-                                    fontSize: 18,
-                                    color: Colors.white,
-                                    shadows: [
-                                      BoxShadow(
-                                          color: Colors.green,
-                                          blurRadius: 10,
-                                          offset: Offset(3, 3))
-                                    ],
-                                  ),
+                            ),
+                            child: const Center(
+                              child: Text(
+                                'Enak',
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  color: Colors.white,
+                                  shadows: [
+                                    BoxShadow(
+                                        color: Colors.black,
+                                        blurRadius: 10,
+                                        offset: Offset(3, 3))
+                                  ],
                                 ),
                               ),
                             ),
                           ),
-                          Text(
-                            '25% off',
-                            style: TextStyle(
-                                fontSize: 40,
-                                color: Colors.green[100],
-                                fontWeight: FontWeight.bold),
+                        ),
+                        Text(
+                          'Danusanku',
+                          style: TextStyle(
+                              shadows: [
+                                BoxShadow(
+                                    color: Colors.black,
+                                    blurRadius: 10,
+                                    offset: Offset(3, 3))
+                              ],
+                              fontSize: 40,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        const Padding(
+                          padding: EdgeInsets.only(left: 20),
+                          child: Text(
+                            'Jajanan Enak dan Bergizi',
+                            style: TextStyle(color: Colors.white, fontSize: 15),
                           ),
-                          Padding(
-                            padding: const EdgeInsets.only(left: 20),
-                            child: Text(
-                              'Jajanan yang bergizi dan murah',
-                              style: TextStyle(
-                                color: Colors.white,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
                   Expanded(
@@ -234,60 +384,9 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 5),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text('Aneka Cokelat'),
-                  Text(
-                    'Lihat Semua',
-                    style: TextStyle(
-                      color: Colors.grey,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  singalProducts(),
-                  singalProducts(),
-                  singalProducts(),
-                  singalProducts(),
-                  singalProducts(),
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 5),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text('Aneka Manisan'),
-                  Text(
-                    'Lihat Semua',
-                    style: TextStyle(
-                      color: Colors.grey,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  singalProducts(),
-                  singalProducts(),
-                  singalProducts(),
-                  singalProducts(),
-                  singalProducts(),
-                ],
-              ),
-            ),
+            _buildHerbsProduct(context),
+            _buildFreshProduct(context),
+            _buildRootProduct(context),
           ],
         ),
       ),
