@@ -3,6 +3,7 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:tugas_besar/config/colors.dart';
 import 'package:tugas_besar/screens/my_profile/my_profile.dart';
+import 'package:tugas_besar/screens/review_cart/review_car.dart';
 
 class Drawerside extends StatelessWidget {
   Widget listTile(
@@ -72,7 +73,16 @@ class Drawerside extends StatelessWidget {
               iconData: Icons.home_outlined,
               title: "Home",
             ),
-            listTile(iconData: Icons.shop_outlined, title: "Keranjang"),
+            listTile(
+                iconData: Icons.shop_outlined,
+                title: "Keranjang",
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => ReviewCart(),
+                    ),
+                  );
+                }),
             listTile(
                 iconData: Icons.person_outlined,
                 title: "Profil Saya",

@@ -8,12 +8,14 @@ class SingalProduct extends StatelessWidget {
   final String productImage;
 
   final String productName;
+  final int productPrice;
 
   final void Function()? onTap;
 
   SingalProduct({
     required this.productImage,
     required this.productName,
+    required this.productPrice,
     required this.onTap,
   });
 
@@ -61,7 +63,7 @@ class SingalProduct extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          '50\$50 Gram',
+                          '\Rp$productPrice',
                           style: TextStyle(color: Colors.grey),
                         ),
                         SizedBox(
@@ -83,7 +85,7 @@ class SingalProduct extends StatelessWidget {
                                   children: [
                                     Expanded(
                                         child: Text(
-                                      '50 Gram',
+                                      'Sedang',
                                       style: TextStyle(fontSize: 10),
                                     )),
                                     Center(

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'package:tugas_besar/config/colors.dart';
+import 'package:tugas_besar/providers/product_provider.dart';
 
 import 'package:tugas_besar/screens/home/singal_product.dart';
 import 'package:tugas_besar/screens/product_overview/product_overview.dart';
@@ -8,7 +10,15 @@ import 'package:tugas_besar/screens/search/search.dart';
 
 import 'drawer_side.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({Key? key}) : super(key: key);
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  late ProductProvider productProvider;
   Widget _buildHerbsProduct(context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -18,9 +28,15 @@ class HomeScreen extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: const [
-              Text('Herbs Seasonings'),
               Text(
-                'view all',
+                'Makanan',
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 20,
+                    fontWeight: FontWeight.w600),
+              ),
+              Text(
+                'Lihat semua',
                 style: TextStyle(color: Colors.grey),
               ),
             ],
@@ -29,72 +45,26 @@ class HomeScreen extends StatelessWidget {
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
-            children: [
-              SingalProduct(
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => ProductOverview(
-                        productName: "Herbs",
-                        productImage:
-                            'https://sarasa.id/image/produk/gallery-snack/arem-ayam.png',
+            children: productProvider.getHerbsProductDataList.map(
+              (herbsProductData) {
+                return SingalProduct(
+                  onTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => ProductOverview(
+                          productName: herbsProductData.productName,
+                          productImage: herbsProductData.productImage,
+                          productPrice: herbsProductData.productPrice,
+                        ),
                       ),
-                    ),
-                  );
-                },
-                productImage:
-                    'https://sarasa.id/image/produk/gallery-snack/arem-ayam.png',
-                productName: 'Herbs',
-              ),
-              SingalProduct(
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => ProductOverview(
-                        productName: "Herbs1",
-                        productImage:
-                            'https://sarasa.id/image/produk/gallery-snack/arem-ayam.png',
-                      ),
-                    ),
-                  );
-                },
-                productImage:
-                    ('https://sarasa.id/image/produk/gallery-snack/arem-ayam.png'),
-                productName: 'Herbs1',
-              ),
-              SingalProduct(
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => ProductOverview(
-                        productName: "Herbs2",
-                        productImage:
-                            'https://sarasa.id/image/produk/gallery-snack/arem-ayam.png',
-                      ),
-                    ),
-                  );
-                },
-                productImage:
-                    ('https://sarasa.id/image/produk/gallery-snack/arem-ayam.png'),
-                productName: 'Herbs2',
-              ),
-              SingalProduct(
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => ProductOverview(
-                        productName: "Herbs3",
-                        productImage:
-                            'https://sarasa.id/image/produk/gallery-snack/arem-ayam.png',
-                      ),
-                    ),
-                  );
-                },
-                productImage:
-                    ('https://sarasa.id/image/produk/gallery-snack/arem-ayam.png'),
-                productName: 'Herbs3',
-              ),
-            ],
+                    );
+                  },
+                  productImage: herbsProductData.productImage,
+                  productName: herbsProductData.productName,
+                  productPrice: herbsProductData.productPrice,
+                );
+              },
+            ).toList(),
           ),
         ),
       ],
@@ -110,9 +80,15 @@ class HomeScreen extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: const [
-              Text('Herbs Seasonings'),
               Text(
-                'view all',
+                'Minuman',
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 20,
+                    fontWeight: FontWeight.w600),
+              ),
+              Text(
+                'Lihat semua',
                 style: TextStyle(color: Colors.grey),
               ),
             ],
@@ -121,72 +97,28 @@ class HomeScreen extends StatelessWidget {
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
-            children: [
-              SingalProduct(
+            children:
+                productProvider.getFreshProductDataList.map((freshProductData) {
+              return SingalProduct(
                 onTap: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
                       builder: (context) => ProductOverview(
-                        productName: "Herbs",
-                        productImage:
-                            'https://sarasa.id/image/produk/gallery-snack/arem-ayam.png',
+                        productName: freshProductData.productName,
+                        productImage: freshProductData.productImage,
+                        productPrice: freshProductData.productPrice,
                       ),
                     ),
                   );
                 },
-                productImage:
-                    ('https://sarasa.id/image/produk/gallery-snack/arem-ayam.png'),
-                productName: 'Herbs',
-              ),
-              SingalProduct(
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => ProductOverview(
-                        productName: "Herbs1",
-                        productImage:
-                            'https://sarasa.id/image/produk/gallery-snack/arem-ayam.png',
-                      ),
-                    ),
-                  );
-                },
-                productImage:
-                    ('https://sarasa.id/image/produk/gallery-snack/arem-ayam.png'),
-                productName: 'Herbs1',
-              ),
-              SingalProduct(
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => ProductOverview(
-                        productName: "Herbs2",
-                        productImage:
-                            'https://sarasa.id/image/produk/gallery-snack/arem-ayam.png',
-                      ),
-                    ),
-                  );
-                },
-                productImage:
-                    ('https://sarasa.id/image/produk/gallery-snack/arem-ayam.png'),
-                productName: 'Herbs2',
-              ),
-              SingalProduct(
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => ProductOverview(
-                        productName: "Herbs3",
-                        productImage:
-                            'https://sarasa.id/image/produk/gallery-snack/arem-ayam.png',
-                      ),
-                    ),
-                  );
-                },
-                productImage:
-                    ('https://sarasa.id/image/produk/gallery-snack/arem-ayam.png'),
-                productName: 'Herbs3',
-              ),
-            ],
+                productImage: freshProductData.productImage,
+                productName: freshProductData.productName,
+                productPrice: freshProductData.productPrice,
+              );
+            }).toList(),
+            // children: [
+
+            // ],
           ),
         ),
       ],
@@ -202,9 +134,15 @@ class HomeScreen extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: const [
-              Text('Herbs Seasonings'),
               Text(
-                'view all',
+                'Camilan',
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 20,
+                    fontWeight: FontWeight.w600),
+              ),
+              Text(
+                'Lihat semua',
                 style: TextStyle(color: Colors.grey),
               ),
             ],
@@ -213,55 +151,43 @@ class HomeScreen extends StatelessWidget {
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
-            children: [
-              // SingalProduct(
-
-              //
-
-              //   productImage:
-
-              //       ('https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg'),
-
-              //   productName: 'Herbs', onTap: () {
-
-              //   Navigator.of(context).push(MaterialPageRoute(
-
-              //       builder: (context) =>  ProductOverview()));
-
-              // },
-
-              // ),
-
-              //
-
-              SingalProduct(
-                  productImage:
-                      ('https://sarasa.id/image/produk/gallery-snack/arem-ayam.png'),
-                  productName: 'Herbs',
-                  onTap: () {}),
-
-              SingalProduct(
-                  productImage:
-                      ('https://sarasa.id/image/produk/gallery-snack/arem-ayam.png'),
-                  productName: 'Herbs',
-                  onTap: () {}),
-
-              SingalProduct(
-                  productImage:
-                      ('https://sarasa.id/image/produk/gallery-snack/arem-ayam.png'),
-                  productName: 'Herbs',
-                  onTap: () {}),
-            ],
+            children:
+                productProvider.getRootProductDataList.map((rootProductData) {
+              return SingalProduct(
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => ProductOverview(
+                        productName: rootProductData.productName,
+                        productImage: rootProductData.productImage,
+                        productPrice: rootProductData.productPrice,
+                      ),
+                    ),
+                  );
+                },
+                productImage: rootProductData.productImage,
+                productName: rootProductData.productName,
+                productPrice: rootProductData.productPrice,
+              );
+            }).toList(),
           ),
         ),
       ],
     );
   }
 
-  const HomeScreen({Key? key}) : super(key: key);
+  void initState() {
+    ProductProvider productProvider = Provider.of(context, listen: false);
+    productProvider.fatchHerbsProductData();
+    productProvider.fatchFreshProductData();
+    productProvider.fatchRootProductData();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
+    productProvider = Provider.of(context);
+
     return Scaffold(
       drawer: Drawerside(),
       appBar: AppBar(
@@ -371,7 +297,7 @@ class HomeScreen extends StatelessWidget {
                         const Padding(
                           padding: EdgeInsets.only(left: 20),
                           child: Text(
-                            'Jajanan Enak dan Bergizi',
+                            'Jajanan Lezat dan Bergizi',
                             style: TextStyle(color: Colors.white, fontSize: 15),
                           ),
                         ),
