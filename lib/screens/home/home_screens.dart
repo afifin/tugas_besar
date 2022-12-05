@@ -11,10 +11,8 @@ import 'package:tugas_besar/screens/search/search.dart';
 import 'drawer_side.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
-
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  _HomeScreenState createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
@@ -27,7 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
           padding: const EdgeInsets.symmetric(vertical: 20),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
+            children: [
               Text(
                 'Makanan',
                 style: TextStyle(
@@ -35,9 +33,20 @@ class _HomeScreenState extends State<HomeScreen> {
                     fontSize: 20,
                     fontWeight: FontWeight.w600),
               ),
-              Text(
-                'Lihat semua',
-                style: TextStyle(color: Colors.grey),
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => Search(
+                        search: productProvider.getHerbsProductDataList,
+                      ),
+                    ),
+                  );
+                },
+                child: Text(
+                  'Lihat semua',
+                  style: TextStyle(color: Colors.grey),
+                ),
               ),
             ],
           ),
@@ -79,7 +88,7 @@ class _HomeScreenState extends State<HomeScreen> {
           padding: const EdgeInsets.symmetric(vertical: 20),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
+            children: [
               Text(
                 'Minuman',
                 style: TextStyle(
@@ -87,9 +96,20 @@ class _HomeScreenState extends State<HomeScreen> {
                     fontSize: 20,
                     fontWeight: FontWeight.w600),
               ),
-              Text(
-                'Lihat semua',
-                style: TextStyle(color: Colors.grey),
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => Search(
+                        search: productProvider.getFreshProductDataList,
+                      ),
+                    ),
+                  );
+                },
+                child: Text(
+                  'Lihat semua',
+                  style: TextStyle(color: Colors.grey),
+                ),
               ),
             ],
           ),
@@ -133,7 +153,7 @@ class _HomeScreenState extends State<HomeScreen> {
           padding: const EdgeInsets.symmetric(vertical: 20),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
+            children: [
               Text(
                 'Camilan',
                 style: TextStyle(
@@ -141,9 +161,20 @@ class _HomeScreenState extends State<HomeScreen> {
                     fontSize: 20,
                     fontWeight: FontWeight.w600),
               ),
-              Text(
-                'Lihat semua',
-                style: TextStyle(color: Colors.grey),
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => Search(
+                        search: productProvider.getRootProductDataList,
+                      ),
+                    ),
+                  );
+                },
+                child: Text(
+                  'Lihat semua',
+                  style: TextStyle(color: Colors.grey),
+                ),
               ),
             ],
           ),
@@ -205,7 +236,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 onPressed: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (context) => Search(),
+                      builder: (context) =>
+                          Search(search: productProvider.gerAllProductSearch),
                     ),
                   );
                 },
@@ -281,7 +313,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                           ),
                         ),
-                        Text(
+                        const Text(
                           'Danusanku',
                           style: TextStyle(
                               shadows: [

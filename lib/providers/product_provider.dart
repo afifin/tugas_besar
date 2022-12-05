@@ -5,11 +5,15 @@ import 'package:tugas_besar/models/product_model.dart';
 class ProductProvider with ChangeNotifier {
   late ProductModel productModel;
 
+  List<ProductModel> search = [];
+
   productModels(QueryDocumentSnapshot element) {
     productModel = ProductModel(
         productImage: element.get("productImage"),
         productName: element.get("productName"),
         productPrice: element.get("productPrice"));
+        search.add(productModel);
+        //
   }
 
   /////////////////////  Makanan   //////////////////////
@@ -80,5 +84,9 @@ class ProductProvider with ChangeNotifier {
 
   List<ProductModel> get getRootProductDataList {
     return rootProduList;
+  }
+  //////// Search return ///////////////////
+   List<ProductModel> get gerAllProductSearch {
+    return search;
   }
 }

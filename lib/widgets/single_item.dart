@@ -6,7 +6,14 @@ import 'package:tugas_besar/config/colors.dart';
 
 class SingleItem extends StatelessWidget {
   bool isBool = false;
-  SingleItem({super.key, required this.isBool});
+  String productImage;
+  String productName;
+  int productPrice;
+  SingleItem(
+      {required this.isBool,
+      required this.productImage,
+      required this.productName,
+      required this.productPrice});
 
   @override
   Widget build(BuildContext context) {
@@ -19,9 +26,7 @@ class SingleItem extends StatelessWidget {
               Expanded(
                 child: Container(
                   height: 100,
-                  child: Center(
-                      child: Image.network(
-                          "https://sarasa.id/image/produk/gallery-snack/arem-ayam.png")),
+                  child: Center(child: Image.network(productImage)),
                 ),
               ),
               Expanded(
@@ -36,12 +41,12 @@ class SingleItem extends StatelessWidget {
                       Column(
                         children: [
                           Text(
-                            "Nama Produk",
+                            productName,
                             style: TextStyle(
                                 color: textColor, fontWeight: FontWeight.bold),
                           ),
                           Text(
-                            "Rp25.000",
+                            "Rp $productPrice",
                             style: TextStyle(
                               color: Colors.grey,
                             ),
