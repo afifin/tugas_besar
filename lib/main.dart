@@ -4,6 +4,7 @@ import 'package:tugas_besar/auth/sign_in.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:tugas_besar/config/colors.dart';
 import 'package:tugas_besar/providers/product_provider.dart';
+import 'package:tugas_besar/providers/user_provider.dart';
 import 'package:tugas_besar/screens/home/home_screens.dart';
 import 'package:tugas_besar/screens/product_overview/product_overview.dart';
 
@@ -19,14 +20,21 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<ProductProvider>(
-      create: (context) => ProductProvider(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<ProductProvider>(
+          create: (context) => ProductProvider(),
+        ),
+        ChangeNotifierProvider<UserProvider>(
+          create: (context) => UserProvider(),
+        ),
+      ],
       child: MaterialApp(
         theme: ThemeData(
             primaryColor: primaryColor,
             scaffoldBackgroundColor: scaffoldBackgroundColor),
         debugShowCheckedModeBanner: false,
-        home: HomeScreen(),
+        home: SignIn(),
       ),
     );
   }
