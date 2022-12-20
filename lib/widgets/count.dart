@@ -1,11 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:provider/provider.dart';
 import 'package:tugas_besar/config/colors.dart';
+import 'package:tugas_besar/providers/review_cart_provider.dart';
 
 class Count extends StatefulWidget {
-  const Count({super.key});
+  late String productName;
+  late String productImage;
+  late String productId;
+  late int productPrice;
 
+  Count({
+    required this.productName,
+    required this.productImage,
+    required this.productId,
+    required this.productPrice,
+  });
   @override
   State<Count> createState() => _CountState();
 }
@@ -16,6 +27,7 @@ class _CountState extends State<Count> {
 
   @override
   Widget build(BuildContext context) {
+    ReviewCartProvider reviewCartProvider = Provider.of(context);
     return Container(
         height: 25,
         width: 50,
@@ -58,6 +70,12 @@ class _CountState extends State<Count> {
                       setState(() {
                         count++;
                       });
+                       reviewCartProvider.addReviewCartData(
+                        cartId: widget.productId,
+                        cartName: widget.productName,
+                        cartImage: widget.productImage,
+                        cartPrice: widget.productPrice,
+                        cartQuantity: count);
                     },
                     child: Icon(
                       Icons.add,
@@ -73,6 +91,12 @@ class _CountState extends State<Count> {
                     setState(() {
                       isTrue = true;
                     });
+                    reviewCartProvider.addReviewCartData(
+                        cartId: widget.productId,
+                        cartName: widget.productName,
+                        cartImage: widget.productImage,
+                        cartPrice: widget.productPrice,
+                        cartQuantity: count);
                   },
                   child: Text(
                     "ADD",

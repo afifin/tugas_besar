@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:provider/provider.dart';
+import 'package:tugas_besar/config/colors.dart';
 import 'package:tugas_besar/providers/user_provider.dart';
 import 'package:tugas_besar/screens/home/home_screens.dart';
 
@@ -29,18 +30,18 @@ class _SignInState extends State<SignIn> {
         idToken: googleAuth.idToken,
       );
 
-final User? user = (await _auth.signInWithCredential(credential)).user;
-if (user!=null) {
-  User newUser = user as User;
- //userProvider.addUserData(
-   // currentUser: newUser,
-    // userEmail: newUser.email,
-    // userImage: newUser.photoURL,
-    // userName: newUser.displayName,
-     //);
-} else {
-  //Other stuff
-}
+      final User? user = (await _auth.signInWithCredential(credential)).user;
+      if (user != null) {
+        User newUser = user as User;
+        //userProvider.addUserData(
+        // currentUser: newUser,
+        // userEmail: newUser.email,
+        // userImage: newUser.photoURL,
+        // userName: newUser.displayName,
+        //);
+      } else {
+        //Other stuff
+      }
 
       return user;
     } catch (e) {
@@ -72,14 +73,14 @@ if (user!=null) {
                 children: [
                   Text('Sign in to Continue'),
                   Text(
-                    'Danusanku',
+                    'DanusIn',
                     style: TextStyle(
                         fontSize: 50,
                         color: Colors.white,
                         shadows: [
                           BoxShadow(
                               blurRadius: 5,
-                              color: Colors.green.shade900,
+                              color: primaryColor,
                               offset: Offset(3, 3))
                         ]),
                   ),

@@ -61,6 +61,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     Navigator.of(context).push(
                       MaterialPageRoute(
                         builder: (context) => ProductOverview(
+                          productId: herbsProductData.productId,
                           productName: herbsProductData.productName,
                           productImage: herbsProductData.productImage,
                           productPrice: herbsProductData.productPrice,
@@ -68,6 +69,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     );
                   },
+                  productId: herbsProductData.productId,
                   productImage: herbsProductData.productImage,
                   productName: herbsProductData.productName,
                   productPrice: herbsProductData.productPrice,
@@ -124,6 +126,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   Navigator.of(context).push(
                     MaterialPageRoute(
                       builder: (context) => ProductOverview(
+                        productId: freshProductData.productId,
                         productName: freshProductData.productName,
                         productImage: freshProductData.productImage,
                         productPrice: freshProductData.productPrice,
@@ -131,6 +134,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   );
                 },
+                productId: freshProductData.productId,
                 productImage: freshProductData.productImage,
                 productName: freshProductData.productName,
                 productPrice: freshProductData.productPrice,
@@ -189,6 +193,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   Navigator.of(context).push(
                     MaterialPageRoute(
                       builder: (context) => ProductOverview(
+                        productId: rootProductData.productId,
                         productName: rootProductData.productName,
                         productImage: rootProductData.productImage,
                         productPrice: rootProductData.productPrice,
@@ -196,6 +201,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   );
                 },
+                productId: rootProductData.productId,
                 productImage: rootProductData.productImage,
                 productName: rootProductData.productName,
                 productPrice: rootProductData.productPrice,
@@ -290,7 +296,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             height: 50,
                             width: 100,
                             decoration: const BoxDecoration(
-                              color: Color(0xffd1ad17),
+                              color: Color(0xff8E3200),
                               borderRadius: BorderRadius.only(
                                 bottomRight: Radius.circular(50),
                                 bottomLeft: Radius.circular(50),

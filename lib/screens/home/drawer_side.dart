@@ -26,7 +26,7 @@ class Drawerside extends StatelessWidget {
   Widget build(BuildContext context) {
     return Drawer(
       child: Container(
-        color: Color(0xffd1ad17),
+        color: Color(0xffA64B2A),
         child: ListView(
           children: [
             DrawerHeader(
@@ -71,6 +71,7 @@ class Drawerside extends StatelessWidget {
             ),
             listTile(
               iconData: Icons.home_outlined,
+              
               title: "Home",
             ),
             listTile(

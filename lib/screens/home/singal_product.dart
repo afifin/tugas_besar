@@ -7,13 +7,13 @@ import 'package:tugas_besar/widgets/count.dart';
 
 class SingalProduct extends StatelessWidget {
   final String productImage;
-
   final String productName;
   final int productPrice;
-
   final void Function()? onTap;
+  final String productId;
 
   SingalProduct({
+    required this.productId,
     required this.productImage,
     required this.productName,
     required this.productPrice,
@@ -103,7 +103,12 @@ class SingalProduct extends StatelessWidget {
                             SizedBox(
                               width: 5,
                             ),
-                            Count(),
+                            Count(
+                              productId: productId,
+                              productImage: productImage,
+                              productName: productName,
+                              productPrice: productPrice,
+                            ),
                           ],
                         ),
                       ],

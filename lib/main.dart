@@ -4,6 +4,7 @@ import 'package:tugas_besar/auth/sign_in.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:tugas_besar/config/colors.dart';
 import 'package:tugas_besar/providers/product_provider.dart';
+import 'package:tugas_besar/providers/review_cart_provider.dart';
 import 'package:tugas_besar/providers/user_provider.dart';
 import 'package:tugas_besar/screens/home/home_screens.dart';
 import 'package:tugas_besar/screens/product_overview/product_overview.dart';
@@ -27,6 +28,9 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider<UserProvider>(
           create: (context) => UserProvider(),
+        ),
+        ChangeNotifierProvider<ReviewCartProvider>(
+          create: (context) => ReviewCartProvider(),
         ),
       ],
       child: MaterialApp(
